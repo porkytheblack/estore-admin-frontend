@@ -23,42 +23,26 @@ function Sidebar({setSidebarStatus, show_sidebar}) {
                 {
                     title: "My Sales",
                     links: [
-                        "Orders",
-                        "Abandoned Carts",
-                        "Customers",
-                        "Search"
+                        "orders",
                     ]
                 },
                 {
                     title: "Catalog",
                     links: [
-                        "Products",
-                        "Categories",
-                        "Gift Cards",
-                        "Search"
+                        "products",
                     ]
                 },
-                {
-                    title: "Reports",
-                    links:[
-                        "Reports"
-                    ]
-                }
             ]
         },
         {
-            title: "Configuration",
+            title: "Promotions",
             categories: [
                 {
-                title: "Payment",
-                links: []
-            },
-            {
-                title: "Shipping & Pickup",
-                links:[
-
+                title: "Articles",
+                links: [
+                    "articles",
                 ]
-            }
+            },
         ]
         },
         {
@@ -67,7 +51,7 @@ function Sidebar({setSidebarStatus, show_sidebar}) {
                 {
                     title: "Profile",
                     links:[
-
+                        "profile"
                     ]
                 }
             ]
@@ -89,15 +73,15 @@ function Sidebar({setSidebarStatus, show_sidebar}) {
                             title: obj.title,
                             active: true
                         })}} >
-                            <Link href="/">
+                            
                                 {obj.title}
-                            </Link>
+                            
                         </h1>
                         {active_link.title == obj.title && active_link.active && obj.links.map((link, d)=>{
                             if(link !== "Search"){
                                 return(
-                                    <Link key={d} href="/" >
-                                    <LinkItem>
+                                    <Link key={d} href={`/${link.replace(" ", "_")}`} >
+                                    <LinkItem className="capitalize">
                                         {link}
                                     </LinkItem>
                                     </Link>
@@ -130,9 +114,11 @@ function Sidebar({setSidebarStatus, show_sidebar}) {
                 </CloseButton>
             </div>}
             <div className="w-full h-full flex flex-col bg-{#1f2328} ">
-                <LogoContainer>
-                    <Image className="obj" height={70} width={220} src={logo_pic} alt="logo image" />
-                </LogoContainer>
+                <Link href="/dashboard" >
+                    <LogoContainer className="cursor-pointer">
+                        <Image className="obj" height={70} width={220} src={logo_pic} alt="logo image" />
+                    </LogoContainer>
+                </Link>
                 {sidebar_options.map((obj, i)=>{
                     return renderList(obj, i)
                 })}

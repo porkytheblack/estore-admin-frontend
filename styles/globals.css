@@ -15,16 +15,11 @@ body > *{
     box-sizing: border-box;
 }
 
-#filterInput:focus-within ~ label {
-  @apply transform scale-75 -translate-y-6 text-blue-500;
- }
- 
-
-/* .float_on_focus:focus-within ~ label,
-.float_on_focus:not(:placeholder-shown) ~ label {
-  @apply transform scale-75 -translate-y-6;
+.floating-input>input::placeholder {
+  color: transparent;
 }
 
-.float_on_focus:focus-within ~ label {
-  @apply text-blue-500;
-} */
+.floating-input>input:focus~label, 
+.floating-input>input:not(:placeholder-shown)~label {
+@apply opacity-75 scale-75 -translate-y-3 translate-x-1; 
+}

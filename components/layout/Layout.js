@@ -3,20 +3,23 @@ import Footer from './Footer';
 import Sidebar from './Sidebar';
 import Topbar from './Topbar';
 import { connect } from 'react-redux';
+import { useRouter } from 'next/dist/client/router';
 
 const Layout = (props) => {
 
     const {children, show_sidebar} = props;
+    const router = useRouter();
+
 
 
     return (
-        <BodyContainer className="bg-{#eceef0} m-0 pb-0 flex flex-row">
-            <SideBarContainer show={show_sidebar} className="bg-green-600 sidebar flex flex-column" >
+        <BodyContainer className="bg-{#dfe3e7} m-0 pb-0 flex flex-row">
+            {(router.pathname !== "/" && router.pathname !== "/signup" && router.pathname !== "/signin" )  && <SideBarContainer show={show_sidebar} className=" sidebar flex flex-column" >
                 <Sidebar/>
-            </SideBarContainer>                
+            </SideBarContainer> }               
             <LayoutContainer className="flex relative flex-col">
                 {show_sidebar && <BodyCover className="md:hidden flex" />}
-                        <Topbar/>
+                        {(router.pathname !== "/" && router.pathname !== "/signup" && router.pathname !== "/signin" )  && <  Topbar/>}
                         {children}
                         <Footer/> 
             </LayoutContainer>

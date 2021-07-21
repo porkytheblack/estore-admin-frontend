@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
 import styled from "styled-components"
-import ButtonContainer from '../../components/reusables/ButtonContainer'
+import React, { useState } from 'react'
 import AddIcon from '@material-ui/icons/Add';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import { Search } from '@material-ui/icons';
 import Link from 'next/link';
-
+import ButtonContainer from "../../components/reusables/ButtonContainer";
 
 function index() {
     const [show_filter, set_show_filter]  = useState(false)
@@ -44,16 +43,15 @@ function index() {
         
         )
     }
-
     return (
-        <ProductsPageContainer className="flex flex-col w-full justify-start" >
+        <Container>
             <PageTitle className="flex justify-start" >
-                Products
+                Articles
             </PageTitle>
             <FiltersContainer className="flex flex-col w-full justify-center" >
-                <Link href="/products/add_product" >
+                <Link href="/articles/add_articles" >
                     <div className="w-full flex justify-start items-center">
-                        <ButtonContainer Icon={AddIcon} icon_data={{size: "medium", color:"white"}} fontSize="14px" bgColor="#068eef" color="white" icon_position="left" button_title="Add New Product"   />
+                        <ButtonContainer Icon={AddIcon} icon_data={{size: "medium", color:"white"}} fontSize="14px" bgColor="#068eef" color="white" icon_position="left" button_title="Write New Article"   />
                     </div>
                 </Link>
                 <div className="w-full flex justify-between pt-2 items-center"> 
@@ -114,15 +112,24 @@ function index() {
                 
                 
             </FiltersContainer>
-        </ProductsPageContainer>
+        </Container>
     )
 }
 
 export default index
 
-const ProductsPageContainer = styled.div`
-    padding: 0px 8px 80px;
+const Container = styled.div`
+    width: 100%;
     min-height: 100vh;
+    background-color: #dfe3e7;
+    padding: 0px 20px;
+`
+const CardContainer = styled.div`
+    width: 100%;
+    bax-shadow: 0 5px 10px rgb(0 0 0 / 15%), 0 0 0 rgb(0 0 0 / 8%) inset;
+    background-color: white;
+    border-radius: 8px;
+    padding: 16px;
 `
 const PageTitle = styled.div`
     font-size: 20px;
@@ -206,9 +213,4 @@ const FilterSubCategoryStyles = styled.div`
         cursor: pointer;
         background-color: #d9e1ea;
     }
-`
-const ProductsContainer = styled.div`
-    width: 100%;
-    box-shadow: 0 5px 10px rgb(0 0 0 / 15%);
-    height: full;
 `

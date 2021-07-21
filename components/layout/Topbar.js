@@ -8,7 +8,7 @@ const Topbar = (props) => {
     const {show_sidebar,setSidebarStatus} = props;
 
     return (
-        <div className="w-full h-12 flex flex-row items-center justify-between bg-white   lg:bg-transparent ">
+        <div className="w-full h-12 flex flex-row items-center justify-between bg-{#dfe3e7}   md:bg-{#dfe3e7} ">
             {!show_sidebar && <NavButton className="flex md:hidden" onClick={()=>setSidebarStatus(true)} >
                 <MenuIcon className="text-white h-10"/>
                 <span className="text-white text-lg ">

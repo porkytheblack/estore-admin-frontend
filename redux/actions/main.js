@@ -7,3 +7,10 @@ export const setSidebarStatus  = (status)=>dispatch=>{
         payload: status
     })
 }
+
+export const setToken  = (token_data)=>dispatch=>{
+    dispatch({
+        type: t.token,
+        payload: token_data
+    })
+}
